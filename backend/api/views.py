@@ -454,8 +454,8 @@ class TagsAPIView(APIView):
         """
             Метод обработки HTTP GET-запроса для получения тегов отдельной категории.
         """
-        print(int(request.GET.get("category")[0]))
-        instance = get_object_or_404(CatalogItem, pk = int(request.GET.get("category")[0]) )
+        
+        instance = get_object_or_404(CatalogItem, pk = request.GET.get("category")) 
         item_serializer = CatalogItemsSerializer(
             instance = instance
         )
